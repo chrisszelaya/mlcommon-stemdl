@@ -1,9 +1,9 @@
 SHELL=/bin/bash
 AWS_S3=aws s3 --no-sign-request --endpoint-url https://s3.echo.stfc.ac.uk
 USER_SCRATCH=/scratch/${USER}
-PROJECT_DIR=${USER_SCRATCH}/mlcommons/benchmarks/cloudmask
+PROJECT_DIR=${USER_SCRATCH}/mlcommons/benchmarks/stemdl
 PROJECT_DATA=${USER_SCRATCH}/data
-NAME=cloudmask
+NAME=stemdl
 
 .PHONY: image-singularity image-docker
 
@@ -29,7 +29,7 @@ project: project.json generate
 
 setup:
 	python setup_env_and_yaml.py
-	source ~/ENV3/bin/activate && pip install -r /scratch/${USER}/mlcommons/benchmarks/cloudmask/experiments/rivanna/requirements.txt
+	source ~/ENV3/bin/activate && pip install -r /scratch/${USER}/mlcommons/benchmarks/stemdl/experiments/rivanna/requirements.txt
 
 generate: jobs-project.sh 
 
@@ -99,7 +99,7 @@ clean:
 
 image-singularity:
 	cd image-singularity; make image
-	mv image-singularity/cloudmask.sif .
+	mv image-singularity/stemdl.sif .
 
 run-singularity:
 	cd image-singularity; make run
@@ -113,7 +113,7 @@ image: image-singularity
 
 push:
 	-git push
-	ssh -tt rivanna "cd /scratch/thf2bn/mlcommons/benchmarks/cloudmask; ssh-add; git pull"
+	ssh -tt rivanna "cd /scratch/thf2bn/mlcommons/benchmarks/stemdl; ssh-add; git pull"
 
 
 shell: shell-singularity

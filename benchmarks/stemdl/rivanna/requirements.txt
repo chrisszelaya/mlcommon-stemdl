@@ -8,3 +8,7 @@ git+https://github.com/mlperf/logging.git@2.1.0
 pytorch-lightning
 torchvision
 scikit-learn
+#scikit-learn
+#h5py
+#pyyaml
+#protobuf==3.19.4

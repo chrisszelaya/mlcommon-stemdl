@@ -1,8 +1,8 @@
 NAME=cloudmask
 CODE_DIR=..
-BUILD=cloudmask.def
-IMAGE=cloudmask.sif
-DATA=/scratch2/data/cloudmask/data
+BUILD=stemdl.def
+IMAGE=stemdl.sif
+DATA=/scratch/data/stemdl/data
 BIND=--bind ${DATA}:${DATA}
 
 image:
@@ -26,7 +26,7 @@ status:
 
 run:
 	cd ${CODE_DIR}; mkdir -p outputs
-	cd ${CODE_DIR}; singularity exec ${BIND} --nv cloudmask.sif bash -c "python cloudmask_v2.py --config=config-new.yaml"
+	cd ${CODE_DIR}; singularity exec ${BIND} --nv stemdl.sif bash -c "python stemdl_classification.py --config=stemdlConfig.yaml"
 
 #singularity exec --nv ${NAME}.sif papermill ${NAME}.ipynb ${NAME}_output.ipynb
 

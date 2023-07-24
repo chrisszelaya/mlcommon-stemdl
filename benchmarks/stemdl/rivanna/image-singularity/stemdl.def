@@ -1,0 +1,13 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/pytorch:23.06-py3
+
+%post
+    apt update
+    apt install -y python3-venv git
+    pip install pip -U ; python --version
+    pip install matplotlib
+    pip install -r requirements.txt
+
+
+
+

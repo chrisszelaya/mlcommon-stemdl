@@ -30,14 +30,14 @@ echo "# ==================================="
 # echo gpu count {experiment.gpu_count}
 # echo epoc {experiment.epoch}
 # echo repeat {experiment.repeat}
-echo jobno %j
+echo jobno $SLURM_JOB_ID
 # echo partition {system.partition}
 # echo allocation {system.allocation}
 # echo reservation {system.reservation}
 # echo constraint {system.constraint}
 # echo cpu num {experiment.cpu_num}
 # echo mem {experiment.mem}
-echo %u
+echo $USER
 
 PROGRESS "running" 2
 
